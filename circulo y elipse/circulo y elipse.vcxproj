@@ -159,11 +159,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\lib\Circunferencias.cpp" />
     <ClCompile Include="src\lib\Colores.cpp" />
     <ClCompile Include="src\lib\Ventana.cpp" />
     <ClCompile Include="src\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\lib\Circunferencias.h" />
     <ClInclude Include="src\lib\Colores.h" />
     <ClInclude Include="src\lib\Ventana.h" />
   </ItemGroup>
