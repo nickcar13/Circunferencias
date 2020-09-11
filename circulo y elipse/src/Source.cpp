@@ -4,12 +4,15 @@
 #include "lib/Ventana.h"
 #include "lib/Colores.h"
 #include "lib/Circunferencias.h"
+#include "lib/MenuDesplegable.h"
 
 int ANCHO = 1000, ALTO = 600;
 Colores colormain;
 Circunferencias c1;
+MenuDesplegable menu;
 
 int control = 0;
+
 
 void display() {}
 
@@ -29,14 +32,21 @@ void opciones(int i) {
 	ejes();
 	if (i == 1) {
 		control = 1;
-		//c1.circulo(0, 0, 80); // a , b, r
 	}
 	else if (i == 2) {
 		control = 2;
-		//c1.elipse(0, 0, 20, 100);//a , b , r1, r2
 	}
 	else if (i == 3) {
-		control == 1 ? c1.circulo(0, 0, 80): c1.elipse(0, 0, 20, 100);
+		if (control == 1)
+		{
+			int* datosC = menu.entradaDatos(menu.circulo);
+			c1.circulo(datosC, 238, 108, 77);
+		}
+		else if (control == 2)
+		{
+			int* datosE = menu.entradaDatos(menu.elipse);
+			c1.elipse(datosE, 238, 108, 77);
+		}
 	}
 }
 

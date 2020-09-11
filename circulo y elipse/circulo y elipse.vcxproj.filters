@@ -27,6 +27,9 @@
     <ClCompile Include="src\lib\Circunferencias.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\lib\MenuDesplegable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\Colores.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\lib\Circunferencias.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\MenuDesplegable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

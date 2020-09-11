@@ -9,11 +9,15 @@ Circunferencias::Circunferencias()
 {
 }
 
-void Circunferencias::circulo(int a, int b, int r)
+void Circunferencias::circulo(int* datos, float red, float green, float blue)
 {
+	int a = *datos;
+	int b = *(datos + 1);
+	int r = *(datos + 2);
+
 	float x0 = 0, y0 = 0;
 	glPointSize(3);
-	glColor3fv(colorCir.RGBToFloat(238, 108, 77));
+	glColor3fv(colorCir.RGBToFloat(red, green, blue));
 	glBegin(GL_POINTS);
 	while (x0 <= y0) {
 		y0 = sqrt(pow(r, 2) - pow(x0, 2));
@@ -24,21 +28,26 @@ void Circunferencias::circulo(int a, int b, int r)
 	glFlush();
 }
 
-void Circunferencias::elipse(int a, int b, int r1, int r2)
+void Circunferencias::elipse(int* datos, float red, float green, float blue)
 {
+	int a = *datos;
+	int b = *(datos + 1);
+	int r1 = *(datos + 2);
+	int r2 = *(datos + 3);
+
 	float x0 = 1, y0 = 0;
 	glPointSize(3);
-	glColor3fv(colorCir.RGBToFloat(238, 108, 77));
+	glColor3fv(colorCir.RGBToFloat(red, green, blue));
 	glBegin(GL_POINTS);
 	while (x0 <= r1)
 	{
 		y0 = sqrt((1 - pow(x0, 2) / pow(r1, 2)) * pow(r2, 2));
 		cuadrantes(x0, y0, a, b);
-		x0+=.01;
+		x0 += .01;
 	}
 	glEnd();
 	glFlush();
-	
+
 }
 
 void Circunferencias::octales(float x, float y, int a, int b)
