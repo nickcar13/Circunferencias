@@ -33,10 +33,7 @@ void Circunferencias::elipse(int a, int b, int r1, int r2)
 	while (x0 <= r1)
 	{
 		y0 = sqrt((1 - pow(x0, 2) / pow(r1, 2)) * pow(r2, 2));
-		glVertex2d(x0, y0);
-		glVertex2d(x0, -y0);
-		glVertex2d(-x0, y0);
-		glVertex2d(-x0, -y0);
+		cuadrantes(x0, y0, a, b);
 		x0+=.01;
 	}
 	glEnd();
@@ -62,4 +59,16 @@ void Circunferencias::octales(float x, float y, int a, int b)
 	glVertex2d(yN, xP);
 	glVertex2d(yP, xN);
 	glVertex2d(yN, xN);
+}
+
+void Circunferencias::cuadrantes(float x, float y, int a, int b)
+{
+	int xP = x + a; //xPositiva
+	int xN = -x + a; //xNegativa
+	int yP = y + b; //xNegativa
+	int yN = -y + b; //xNegativa
+	glVertex2d(xP, yP);
+	glVertex2d(xN, yP);
+	glVertex2d(xP, yN);
+	glVertex2d(xN, yN);
 }
