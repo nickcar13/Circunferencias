@@ -12,9 +12,9 @@ Circunferencias::Circunferencias()
 void Circunferencias::circulo(int a, int b, int r)
 {
 	float x0 = 0, y0 = 0;
-	glBegin(GL_POINTS);
+	glPointSize(3);
 	glColor3fv(colorCir.RGBToFloat(238, 108, 77));
-	glPointSize(10);
+	glBegin(GL_POINTS);
 	while (x0 <= y0) {
 		y0 = sqrt(pow(r, 2) - pow(x0, 2));
 		octales(x0, y0, a, b);
@@ -22,6 +22,26 @@ void Circunferencias::circulo(int a, int b, int r)
 	}
 	glEnd();
 	glFlush();
+}
+
+void Circunferencias::elipse(int a, int b, int r1, int r2)
+{
+	float x0 = 1, y0 = 0;
+	glPointSize(3);
+	glColor3fv(colorCir.RGBToFloat(238, 108, 77));
+	glBegin(GL_POINTS);
+	while (x0 <= r1)
+	{
+		y0 = sqrt((1 - pow(x0, 2) / pow(r1, 2)) * pow(r2, 2));
+		glVertex2d(x0, y0);
+		glVertex2d(x0, -y0);
+		glVertex2d(-x0, y0);
+		glVertex2d(-x0, -y0);
+		x0+=.01;
+	}
+	glEnd();
+	glFlush();
+	
 }
 
 void Circunferencias::octales(float x, float y, int a, int b)

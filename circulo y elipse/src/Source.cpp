@@ -33,7 +33,8 @@ int main(int arg, char* argv[]) {
 	ventana1.configVentana(61, 90, 128);
 
 	ejes();
-	c1.circulo(80, 40, 80);
+	//c1.circulo(0, 0, 200);
+	c1.elipse(0, 0, 300, 100);
 
 
 	ventana1.ciclo();
