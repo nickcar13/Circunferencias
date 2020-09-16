@@ -2,11 +2,7 @@
 class MenuDesplegable
 {
 public:
-	enum figuras {
-		circulo,
-		elipse
-	};
-	int* entradaDatos(figuras name);
+	void generarMenu(void (*funcion)(int a), int button);
 private:
 	int datos[4];
 };

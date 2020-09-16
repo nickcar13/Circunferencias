@@ -1,18 +1,11 @@
 #include "MenuDesplegable.h"
+#include <GL/glut.h>
 
-int* MenuDesplegable::entradaDatos(figuras name)
+void MenuDesplegable::generarMenu(void (*funcion)(int a), int button)
 {
-	if (name == figuras::circulo) {
-		datos[0] = 0;
-		datos[1] = 0;
-		datos[2] = 80;
-	}
-	else if (name == figuras::elipse) {
-		datos[0] = 0;
-		datos[1] = 0;
-		datos[2] = 100;
-		datos[3] = 20;
-	}
-
-	return (datos);
+	glutCreateMenu(funcion);
+	glutAddMenuEntry("circulo", 1);
+	glutAddMenuEntry("Elipse", 2);
+	glutAddMenuEntry("Graficar", 3);
+	glutAttachMenu(button);
 }

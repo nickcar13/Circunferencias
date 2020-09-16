@@ -9,11 +9,21 @@ Circunferencias::Circunferencias()
 {
 }
 
+void Circunferencias::pintarPixel(float* color, int x, int y, int pixelSize)
+{
+	glColor3fv(color);
+	glPointSize(pixelSize);
+	glBegin(GL_POINTS);
+	glVertex2d(x, y);
+	glEnd();
+	glFlush();
+}
+
 void Circunferencias::circulo(int* datos, float red, float green, float blue)
 {
-	int a = *datos;
-	int b = *(datos + 1);
-	int r = *(datos + 2);
+	set_a(*datos);
+	set_b(*(datos + 1));
+	set_r(*(datos + 2));
 
 	float x0 = 0, y0 = 0;
 	glPointSize(3);
@@ -30,10 +40,10 @@ void Circunferencias::circulo(int* datos, float red, float green, float blue)
 
 void Circunferencias::elipse(int* datos, float red, float green, float blue)
 {
-	int a = *datos;
-	int b = *(datos + 1);
-	int r1 = *(datos + 2);
-	int r2 = *(datos + 3);
+	set_a(*datos);
+	set_b(*(datos + 1));
+	set_r1(*(datos + 2));
+	set_r2(*(datos + 3));
 
 	float x0 = 1, y0 = 0;
 	glPointSize(3);
@@ -81,3 +91,38 @@ void Circunferencias::cuadrantes(float x, float y, int a, int b)
 	glVertex2d(xP, yN);
 	glVertex2d(xN, yN);
 }
+
+int Circunferencias::calcularRadio(int centroX, int centroY, int rX, int rY)
+{
+	int dx = abs(centroX - rX);
+	int dy = abs(centroY - rY);
+	int radio = sqrt(pow(dx,2)+ pow(dy,2));
+	return radio;
+}
+
+void Circunferencias::set_a(int a)
+{
+	this->a = a;
+}
+
+void Circunferencias::set_b(int b)
+{
+	this->b = b;
+}
+
+void Circunferencias::set_r(int r)
+{
+	this->r = r;
+}
+
+void Circunferencias::set_r1(int r1)
+{
+	this->r1 = r1;
+}
+
+void Circunferencias::set_r2(int r2)
+{
+	this->r2 = r2;
+}
+
+
